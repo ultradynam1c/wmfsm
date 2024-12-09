@@ -4,7 +4,7 @@ pkgname=wmfsm
 pkgver=0.31
 pkgrel=2
 pkgdesc="A dock app showing the free space across your filesystems"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'aarch64')
 url="http://wmfsm.netpedia.net/"
 license=('GPL')
 depends=('libxpm')
@@ -14,7 +14,7 @@ md5sums=('9b47b44ed9102b8b659168383a0c379e')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver/$pkgname"
-  make
+  make CFLAGS="-fcommon"
 }
 
 package() {
